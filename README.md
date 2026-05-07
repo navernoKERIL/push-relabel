@@ -28,9 +28,9 @@ g++ -std=c++17 -O2 bench.cpp -o bench
 ## Ссылки
 
 - [CP-Algorithms: Push-Relabel](https://cp-algorithms.com/graph/push-relabel.html)
-- [Algorithmica](https://algorithmica.org/ru/push-relabel)
 - [НИУ ИТМО](https://neerc.ifmo.ru/wiki/index.php?title=Алгоритм_проталкивания_предпотока)
-- [Goldberg, Tarjan (1988)](https://dl.acm.org/doi/10.1145/48014.61051)
+- [UT Austin](https://iss.oden.utexas.edu/?p=projects/galois/analytics/preflow_push)
+
 
 ## Автор
 
