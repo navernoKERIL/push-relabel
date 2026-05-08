@@ -338,10 +338,11 @@ vector<vector<int>> adj;   // adjacency list
 \begin{lstlisting}[numbers=none, basicstyle=\ttfamily\scriptsize]
 height[s] = n;
 for (int v : adj[s]) {
-    cap[s][v] = initial_cap[s][v];
-    excess[v] = cap[s][v];
-    excess[s] -= cap[s][v];
-    cap[v][s] = 0;
+    int flow = cap[s][v];
+    cap[s][v] -= flow;
+    excess[v] += flow;
+    excess[s] -= flow;
+    cap[v][s] += flow;
 }
 \end{lstlisting}
 \end{block}
@@ -369,15 +370,14 @@ void push(int u, int v) {
 \vspace{-0.2cm}
 \begin{lstlisting}[numbers=none, basicstyle=\ttfamily\scriptsize]
 void relabel(int u) {
-    int min_h = INF;
+    int min_h = INT_MAX;
     for (int v : adj[u])
         if (cap[u][v] > 0)
             min_h = min(min_h, height[v]);
-    height[u] = min_h + 1;
+    if (min_h != INT_MAX)
+        height[u] = min_h + 1;
 }
 \end{lstlisting}
-\vspace{-0.2cm}
-\textit{Высота узла становится на единицу больше минимальной высоты соседа, в который можно протолкнуть поток.}
 \end{block}
 
 \end{frame}
